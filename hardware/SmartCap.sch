@@ -1,0 +1,423 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_ATtiny:ATtiny85-20SU U1
+U 1 1 6201B97B
+P 5250 3200
+F 0 "U1" H 4721 3246 50  0000 R CNN
+F 1 "ATtiny85-20SU" H 4721 3155 50  0000 R CNN
+F 2 "ATTiny85-20SU:SOIC127P798X216-8N" H 5250 3200 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 5250 3200 50  0001 C CNN
+	1    5250 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MOLEX_5034801000:5034801000 J1
+U 1 1 620AF47A
+P 8750 3250
+F 0 "J1" H 8980 3346 50  0000 L CNN
+F 1 "5034801000" H 8980 3255 50  0000 L CNN
+F 2 "MOLEX_5034801000:MOLEX_5034801000" H 8750 3250 50  0001 L BNN
+F 3 "" H 8750 3250 50  0001 L BNN
+F 4 "Manufacturer Recommendation" H 8750 3250 50  0001 L BNN "STANDARD"
+F 5 "H" H 8750 3250 50  0001 L BNN "PARTREV"
+F 6 "MOLEX" H 8750 3250 50  0001 L BNN "MANUFACTURER"
+	1    8750 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW1
+U 1 1 620C22CD
+P 7150 3300
+F 0 "SW1" H 7150 3585 50  0000 C CNN
+F 1 "SW_Push" H 7150 3494 50  0000 C CNN
+F 2 "SW_PG151101S11:SW_PG151101S11" H 7150 3500 50  0001 C CNN
+F 3 "~" H 7150 3500 50  0001 C CNN
+	1    7150 3300
+	-1   0    0    1   
+$EndComp
+Text Label 9000 2650 0    50   ~ 0
+SDA
+Text Label 9000 2850 0    50   ~ 0
+SCL
+Text Label 9000 2750 0    50   ~ 0
+TOKEN_IO_R
+Text Label 9000 2950 0    50   ~ 0
+VCC
+Text Label 9000 3450 0    50   ~ 0
+GND
+Text Label 8250 5100 0    50   ~ 0
+GND
+Text Label 8250 4600 0    50   ~ 0
+VCC
+Text Label 8250 4500 0    50   ~ 0
+TOKEN_OUT
+Text Label 8250 4400 0    50   ~ 0
+SCL
+Text Label 8250 4300 0    50   ~ 0
+SDA
+Wire Wire Line
+	5850 3000 6450 3000
+$Comp
+L Switch:SW_Push SW2
+U 1 1 621056F8
+P 6850 4800
+F 0 "SW2" H 6850 5085 50  0000 C CNN
+F 1 "SW_Push" H 6850 4994 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB" H 6850 5000 50  0001 C CNN
+F 3 "~" H 6850 5000 50  0001 C CNN
+	1    6850 4800
+	1    0    0    -1  
+$EndComp
+Text Label 8250 4900 0    50   ~ 0
+TOKEN_RET
+Text Label 9000 3250 0    50   ~ 0
+TOKEN_RET
+Text Label 8250 4800 0    50   ~ 0
+CHAIN_IN
+Text GLabel 8350 2650 0    50   Input ~ 0
+SDA
+Text GLabel 8150 2850 0    50   Input ~ 0
+TOKEN_IN
+Text GLabel 8350 2750 0    50   Input ~ 0
+SCL
+Text GLabel 8150 2950 0    50   Input ~ 0
+VCC
+Text Label 9000 3050 0    50   ~ 0
+CHAIN_OUT
+Text GLabel 8150 3450 0    50   Input ~ 0
+GND
+Text GLabel 8150 3250 0    50   Input ~ 0
+TOKEN_RET
+Text GLabel 9150 4300 2    50   Input ~ 0
+SDA
+Text GLabel 9150 4400 2    50   Input ~ 0
+SCL
+Text GLabel 9500 5100 2    50   Input ~ 0
+GND
+Wire Wire Line
+	5850 2900 6450 2900
+Text GLabel 6450 2900 2    50   Input ~ 0
+SDA
+Text GLabel 6450 3100 2    50   Input ~ 0
+SCL
+Text GLabel 6450 3000 2    50   Input ~ 0
+TOKEN_IN
+Text GLabel 6450 3200 2    50   Input ~ 0
+TOKEN_OUT
+Wire Wire Line
+	5850 3200 6450 3200
+Wire Wire Line
+	5850 3100 6450 3100
+$Comp
+L Device:R R1
+U 1 1 6203B0D2
+P 6350 3600
+F 0 "R1" H 6420 3646 50  0000 L CNN
+F 1 "1K" H 6420 3555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6280 3600 50  0001 C CNN
+F 3 "~" H 6350 3600 50  0001 C CNN
+	1    6350 3600
+	1    0    0    -1  
+$EndComp
+Text GLabel 6350 3800 3    50   Input ~ 0
+VCC
+Text GLabel 7400 3350 3    50   Input ~ 0
+GND
+Wire Wire Line
+	7350 3300 7400 3300
+Wire Wire Line
+	7400 3300 7400 3350
+Wire Wire Line
+	6350 3750 6350 3800
+Text GLabel 5250 2600 1    50   Input ~ 0
+VCC
+Text GLabel 5250 3800 3    50   Input ~ 0
+GND
+Text GLabel 4900 4600 1    50   Input ~ 0
+VCC
+Text GLabel 4900 5200 3    50   Input ~ 0
+GND
+Text GLabel 9950 4500 2    50   Input ~ 0
+TOKEN_OUT
+Text GLabel 9950 5450 2    50   Input ~ 0
+TOKEN_RET
+Text GLabel 9500 4600 2    50   Input ~ 0
+VCC
+$Comp
+L pspice:DIODE D1
+U 1 1 6211F619
+P 9850 5200
+F 0 "D1" V 9804 5328 50  0000 L CNN
+F 1 "DIODE" V 9895 5328 50  0000 L CNN
+F 2 "Diode_SMD:D_SOD-323F" H 9850 5200 50  0001 C CNN
+F 3 "~" H 9850 5200 50  0001 C CNN
+	1    9850 5200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Q_PNP_BCE Q1
+U 1 1 6213C106
+P 9750 4700
+F 0 "Q1" H 9940 4654 50  0000 L CNN
+F 1 "Q_PNP_BCE" H 9940 4745 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9950 4800 50  0001 C CNN
+F 3 "~" H 9750 4700 50  0001 C CNN
+	1    9750 4700
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	5850 3300 6350 3300
+Wire Wire Line
+	6350 3300 6350 3450
+Connection ~ 6350 3300
+Text GLabel 6450 3400 2    50   Input ~ 0
+RST
+Wire Wire Line
+	8350 3250 8150 3250
+Text GLabel 8150 3150 0    50   Input ~ 0
+RST
+Text GLabel 8150 3350 0    50   Input ~ 0
+LED_IN
+Text GLabel 9550 4800 2    50   Input ~ 0
+RST
+$Comp
+L Device:R R2
+U 1 1 6213AF9E
+P 9300 4950
+F 0 "R2" H 9230 4904 50  0000 R CNN
+F 1 "1K" H 9230 4995 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9230 4950 50  0001 C CNN
+F 3 "~" H 9300 4950 50  0001 C CNN
+	1    9300 4950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9150 4900 9450 4900
+Text GLabel 9500 5000 2    50   Input ~ 0
+LED_OUT
+Connection ~ 9850 5450
+Wire Wire Line
+	9850 5450 9950 5450
+$Comp
+L Device:R R3
+U 1 1 6233261E
+P 9300 5300
+F 0 "R3" H 9370 5346 50  0000 L CNN
+F 1 "1K" H 9370 5255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9230 5300 50  0001 C CNN
+F 3 "~" H 9300 5300 50  0001 C CNN
+	1    9300 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 3350 8350 3350
+Wire Wire Line
+	8150 3450 8350 3450
+Wire Wire Line
+	9150 4600 9500 4600
+Wire Wire Line
+	9500 5000 9150 5000
+Wire Wire Line
+	9150 5100 9300 5100
+Wire Wire Line
+	9300 5100 9500 5100
+Connection ~ 9300 5100
+Text Label 9000 3350 0    50   ~ 0
+LED_IN
+Text Label 9000 3150 0    50   ~ 0
+RST
+Text Label 8250 4700 0    50   ~ 0
+RST
+Text Label 8250 5000 0    50   ~ 0
+LED_OUT
+Wire Wire Line
+	9300 5150 9300 5100
+Text GLabel 6800 3300 3    50   Input ~ 0
+BTN_IN
+Wire Wire Line
+	8150 2850 8350 2850
+Wire Wire Line
+	9300 5450 9450 5450
+Wire Wire Line
+	9450 5450 9850 5450
+Connection ~ 9450 5450
+Wire Wire Line
+	9450 4900 9450 5450
+Text GLabel 9400 4700 1    50   Input ~ 0
+CHAIN_IN
+Wire Wire Line
+	9150 4700 9300 4700
+Wire Wire Line
+	9850 5400 9850 5450
+Wire Wire Line
+	9150 4500 9850 4500
+Connection ~ 9850 4500
+Wire Wire Line
+	9850 4500 9950 4500
+Wire Wire Line
+	8150 2950 8250 2950
+Wire Wire Line
+	8250 3050 8250 2950
+Wire Wire Line
+	8250 3050 8350 3050
+Connection ~ 8250 2950
+Wire Wire Line
+	8250 2950 8350 2950
+Wire Wire Line
+	8150 3150 8350 3150
+Wire Wire Line
+	9300 4800 9300 4700
+Connection ~ 9300 4700
+Wire Wire Line
+	9300 4700 9550 4700
+Wire Wire Line
+	9150 4800 9550 4800
+Wire Wire Line
+	9850 4900 9850 5000
+$Comp
+L MOLEX_5034801000:5034801000 J3
+U 1 1 6227DDDB
+P 2850 6150
+F 0 "J3" H 2743 5383 50  0000 C CNN
+F 1 "5034801000" H 2743 5474 50  0000 C CNN
+F 2 "MOLEX_5034801000:MOLEX_5034801000" H 2850 6150 50  0001 L BNN
+F 3 "" H 2850 6150 50  0001 L BNN
+F 4 "Manufacturer Recommendation" H 2850 6150 50  0001 L BNN "STANDARD"
+F 5 "H" H 2850 6150 50  0001 L BNN "PARTREV"
+F 6 "MOLEX" H 2850 6150 50  0001 L BNN "MANUFACTURER"
+	1    2850 6150
+	-1   0    0    1   
+$EndComp
+Text GLabel 3250 5650 2    50   Input ~ 0
+BREAKOUT_GND
+Text GLabel 3250 5850 2    50   Input ~ 0
+BREAKOUT_SDA
+Text GLabel 3250 5950 2    50   Input ~ 0
+BREAKOUT_SCL
+Text GLabel 3250 6050 2    50   Input ~ 0
+BREAKOUT_TOKEN_IN
+Text GLabel 3250 6150 2    50   Input ~ 0
+BREAKOUT_VCC
+Text GLabel 3250 6250 2    50   Input ~ 0
+BREAKOUT_CHAIN_OUT
+Text GLabel 3250 6350 2    50   Input ~ 0
+BREAKOUT_RST
+Text GLabel 3250 6450 2    50   Input ~ 0
+BREAKOUT_TOKEN_RET
+Text GLabel 3250 6550 2    50   Input ~ 0
+BREAKOUT_LED_IN
+Text GLabel 3250 6650 2    50   Input ~ 0
+BREAKOUT_GND
+Text GLabel 6100 6150 0    50   Input ~ 0
+BREAKOUT_SDA
+Text GLabel 6100 6250 0    50   Input ~ 0
+BREAKOUT_SCL
+Text GLabel 6100 6450 0    50   Input ~ 0
+BREAKOUT_TOKEN_IN
+Text GLabel 6550 6050 2    50   Input ~ 0
+BREAKOUT_VCC
+Text GLabel 6100 6750 0    50   Input ~ 0
+BREAKOUT_CHAIN_OUT
+Text GLabel 6100 6650 0    50   Input ~ 0
+BREAKOUT_RST
+Text GLabel 6100 6350 0    50   Input ~ 0
+BREAKOUT_TOKEN_RET
+Text GLabel 6100 6550 0    50   Input ~ 0
+BREAKOUT_LED_IN
+Text GLabel 6550 5850 2    50   Input ~ 0
+BREAKOUT_GND
+Wire Wire Line
+	5850 3400 6450 3400
+$Comp
+L pspice:C C1
+U 1 1 6228CAFD
+P 4450 4900
+F 0 "C1" H 4628 4946 50  0000 L CNN
+F 1 "0.1uF" H 4628 4855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4450 4900 50  0001 C CNN
+F 3 "~" H 4450 4900 50  0001 C CNN
+	1    4450 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 4900 4600 4900
+Wire Wire Line
+	4900 4600 4450 4600
+Wire Wire Line
+	4450 4600 4450 4650
+Wire Wire Line
+	4450 5150 4450 5200
+Wire Wire Line
+	4450 5200 4900 5200
+Text GLabel 4300 4900 0    50   Input ~ 0
+LED_OUT
+Text GLabel 5200 4900 2    50   Input ~ 0
+LED_IN
+$Comp
+L MOLEX_5034801000:5034801000 J2
+U 1 1 620BC508
+P 8750 4600
+F 0 "J2" H 8643 3833 50  0000 C CNN
+F 1 "5034801000" H 8643 3924 50  0000 C CNN
+F 2 "MOLEX_5034801000:MOLEX_5034801000" H 8750 4600 50  0001 L BNN
+F 3 "" H 8750 4600 50  0001 L BNN
+F 4 "Manufacturer Recommendation" H 8750 4600 50  0001 L BNN "STANDARD"
+F 5 "H" H 8750 4600 50  0001 L BNN "PARTREV"
+F 6 "MOLEX" H 8750 4600 50  0001 L BNN "MANUFACTURER"
+	1    8750 4600
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:SK6812MINI D2
+U 1 1 62376ADF
+P 4900 4900
+F 0 "D2" H 5244 4946 50  0000 L CNN
+F 1 "SK6812MINI" H 5244 4855 50  0000 L CNN
+F 2 "LED_SMD:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm" H 4950 4600 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/2686/SK6812MINI_REV.01-1-2.pdf" H 5000 4525 50  0001 L TNN
+	1    4900 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 3300 6950 3300
+$Comp
+L Connector:Conn_01x12_Female J4
+U 1 1 6239DF50
+P 6300 6250
+F 0 "J4" H 6465 6180 50  0000 C CNN
+F 1 "Conn_01x12_Female" V 6374 6180 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x12_P2.54mm_Vertical" H 6300 6250 50  0001 C CNN
+F 3 "~" H 6300 6250 50  0001 C CNN
+	1    6300 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x12_Female J5
+U 1 1 623A0A34
+P 6350 6350
+F 0 "J5" H 6242 5525 50  0000 C CNN
+F 1 "Conn_01x12_Female" H 6242 5616 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x12_P2.54mm_Vertical" H 6350 6350 50  0001 C CNN
+F 3 "~" H 6350 6350 50  0001 C CNN
+	1    6350 6350
+	-1   0    0    1   
+$EndComp
+Text GLabel 6100 6050 0    50   Input ~ 0
+BREAKOUT_GND
+Text GLabel 6100 5950 0    50   Input ~ 0
+BREAKOUT_GND
+$EndSCHEMATC
