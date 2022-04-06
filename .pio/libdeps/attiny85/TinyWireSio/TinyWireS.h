@@ -9,22 +9,22 @@
 
   NOTE! - It's very important to use pullups on the SDA & SCL lines! More so than with the Wire lib.
   Current Rx & Tx buffers set at 32 bytes - see usiTwiSlave.h
- 
+
  USAGE is modeled after the standard Wire library . . .
   Put in setup():
 	TinyWireS.begin(I2C_SLAVE_ADDR);                 // initialize I2C lib & setup slave's address (7 bit - same as Wire)
 
   To Receive:
-    someByte = TinyWireS.available(){                // returns the number of bytes in the received buffer
-    someByte = TinyWireS.receive(){                  // returns the next byte in the received buffer
+	someByte = TinyWireS.available(){                // returns the number of bytes in the received buffer
+	someByte = TinyWireS.receive(){                  // returns the next byte in the received buffer
 
   To Send:
 	TinyWireS.send(uint8_t data){                    // sends a requested byte to master
-	
+
   TODO:	(by others!)
 	- onReceive and onRequest handlers are not implimented.
 	- merge this class with TinyWireM for master & slave support in one library
-	
+
   This library is free software; you can redistribute it and/or modify it under the
   terms of the GNU General Public License as published by the Free Software
   Foundation; either version 2.1 of the License, or any later version.
@@ -38,20 +38,20 @@
 
 #include <inttypes.h>
 
-
 class USI_TWI_S
 {
-  private:
-	//static uint8_t USI_BytesAvail;
-	
-  public:
- 	USI_TWI_S();
-    void begin(uint8_t I2C_SLAVE_ADDR);
-    void send(uint8_t data);
-    uint8_t available();
-    uint8_t receive();
-    void onReceive( void (*)(uint8_t) );
-    void onRequest( void (*)(void) );
+private:
+	// static uint8_t USI_BytesAvail;
+
+public:
+	USI_TWI_S();
+	void begin(uint8_t I2C_SLAVE_ADDR);
+	void stop();
+	void send(uint8_t data);
+	uint8_t available();
+	uint8_t receive();
+	void onReceive(void (*)(uint8_t));
+	void onRequest(void (*)(void));
 };
 
 void TinyWireS_stop_check();
@@ -61,4 +61,3 @@ void tws_delay(unsigned long);
 extern USI_TWI_S TinyWireS;
 
 #endif
-
