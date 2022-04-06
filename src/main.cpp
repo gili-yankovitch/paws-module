@@ -3,14 +3,15 @@
 #include <Wire.h>
 #else
 #include <TinyWireS.h>
+#include "TinyI2CMaster.h"
 #endif
 
 #define LED_EXISTS
 
 #define I2C_BCAST_ADDR 0
 #define I2C_MASTER_ADDR 1
-#define TOKEN_RECV_PIN 3
-#define TOKEN_SEND_PIN 1
+#define TOKEN_RECV_PIN 1
+#define TOKEN_SEND_PIN 3
 #ifdef LED_EXISTS
 #define LED_PIN 4
 #endif
@@ -135,14 +136,18 @@ void initI2CAddr()
 
 	// Mark as done
 	digitalWrite(TOKEN_SEND_PIN, HIGH);
-#ifdef LED_EXISTS
-	// Blink the address I got
-	for (int i = 0; i < addr; ++i)
-	{
-		blink(500);
-		delay(500);
-	}
-#endif
+
+	TinyWireS.onRequest(NULL);
+}
+
+void waitBoardStupFinish()
+{
+	while (digitalRead(TOKEN_RECV_PIN) == HIGH)
+		;
+
+	TinyWireS.stop();
+
+	digitalWrite(TOKEN_SEND_PIN, LOW);
 }
 
 void setup()
@@ -159,27 +164,47 @@ void setup()
 	digitalWrite(TOKEN_SEND_PIN, LOW);
 
 #ifdef LED_EXISTS
-	blink(2000);
+	blink(500);
 #endif
 
 	initI2CAddr();
 
 	pinMode(BUTTON_PIN, INPUT);
+
+	waitBoardStupFinish();
 }
 
 void loop()
 {
-	while (true)
+	if (digitalRead(BUTTON_PIN) == HIGH)
 	{
-		if (digitalRead(BUTTON_PIN) == HIGH)
+		if (state != BTN_STATE_RELEASED)
 		{
-			state = BTN_STATE_RELEASED;
-		}
-		else
-		{
-			state = BTN_STATE_PRESSED;
-		}
+			digitalWrite(TOKEN_SEND_PIN, HIGH);
 
-		TinyWireS_stop_check();
+			state = BTN_STATE_RELEASED;
+			// Send status
+			TinyI2C.init();
+			TinyI2C.start(I2C_BCAST_ADDR, 0);
+			TinyI2C.write(addr);
+			TinyI2C.stop();
+			TinyWireS.begin(addr);
+		}
+	}
+	else
+	{
+		if (state != BTN_STATE_PRESSED)
+		{
+			digitalWrite(TOKEN_SEND_PIN, LOW);
+
+			state = BTN_STATE_PRESSED;
+
+			// Send status
+			TinyI2C.init();
+			TinyI2C.start(I2C_BCAST_ADDR, 0);
+			TinyI2C.write(addr | 0b10000000);
+			TinyI2C.stop();
+			TinyWireS.begin(addr);
+		}
 	}
 }
