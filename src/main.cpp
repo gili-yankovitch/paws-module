@@ -134,6 +134,9 @@ void initI2CAddr()
 	addr = (uint8_t)TinyWireS.read();
 #endif
 
+	// Wait a bit
+	delay(100);
+
 	// Mark as done
 	digitalWrite(TOKEN_SEND_PIN, HIGH);
 
@@ -195,11 +198,15 @@ void loop()
 	{
 		if (state != BTN_STATE_PRESSED)
 		{
-			digitalWrite(TOKEN_SEND_PIN, LOW);
-
 			state = BTN_STATE_PRESSED;
 
 			// Send status
+			TinyI2C.init();
+			TinyI2C.start(I2C_BCAST_ADDR, 0);
+			TinyI2C.write(addr | 0b10000000);
+			TinyI2C.stop();
+
+			// Send again just in case?
 			TinyI2C.init();
 			TinyI2C.start(I2C_BCAST_ADDR, 0);
 			TinyI2C.write(addr | 0b10000000);
